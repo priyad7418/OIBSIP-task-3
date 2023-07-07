@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="video">
+        <video autoplay="" loop="" muted="" width="100%" height="100%">
+            <source src="video.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="form">
+        <p>
+        <h3>Temperature converter</h3>
+        <label for="">Celsius</label>
+         <input type="number" placeholder="Celsius" id="celsius">
+         <label for="">Fahrenheit</label>
+         <input type="number" placeholder="Fahrenheit" id="fahrenheit">
+         <label for="">Kelvin</label>
+         <input type="number" placeholder="Kelvin" id="kelvin">
+        </p>
+    </div>
+<script>
+    let celsius = document.getElementById('celsius');
+       let fahrenheit = document.getElementById('fahrenheit');
+      let kelvin = document.getElementById('kelvin');
+      celsius.oninput = function () {
+      let f = (parseFloat(celsius.value) * 9) / 5 + 32;
+    fahrenheit.value = parseFloat(f.toFixed(2));
+
+     let k = (parseFloat(celsius.value) + 273.15);
+     kelvin.value = parseFloat(k.toFixed(2));
+    };
+fahrenheit.oninput = function () {
+let c = ((parseFloat(
+    fahrenheit.value) - 32) * 5) / 9;
+celsius.value = parseFloat(c.toFixed(2));
+
+let k = (parseFloat(
+    fahrenheit.value) - 32) * 5 / 9 + 273.15;
+kelvin.value = parseFloat(k.toFixed(2));
+};
+kelvin.oninput = function () {
+let f = (parseFloat(
+    kelvin.value) - 273.15) * 9 / 5 + 32;
+fahrenheit.value = parseFloat(f.toFixed(2));
+
+let c = (parseFloat(kelvin.value) - 273.15);
+celsius.value = parseFloat(c.toFixed(2));
+};
+
+        
+</script>
+    
+</body>
+</html>
